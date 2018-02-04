@@ -12,11 +12,15 @@ public final class RatingDTO {
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="The rating of the item.", required=true)
 	public double rating;
-	
 
-	public RatingDTO(final String itemID, final double rating){
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Number of votes for item", required=true)
+	public int votes;
+
+	public RatingDTO(final String itemID, final double rating, final int votes){
 		this.itemID = itemID;
 		this.rating = rating;
+		this.votes = votes;
 	}
 
 	public RatingDTO(){}
@@ -27,6 +31,10 @@ public final class RatingDTO {
 	
 	public RatingDTO(final double rating){
 		this.rating = rating;
+	}
+
+	public RatingDTO(final int votes){
+		this.votes = votes;
 	}
 
 	@Override
@@ -59,6 +67,6 @@ public final class RatingDTO {
 	}
 	@Override
 	public final String toString() {
-		return "RatingDTO [itemID=" + itemID + ", rating=" + rating + "]";
+		return "RatingDTO [itemID=" + itemID + ", rating=" + rating + ", votes=" + votes + "]";
 	}
 }
