@@ -40,6 +40,10 @@ public final class MessageDTO {
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Car model", required=false)
 	public String carModelID;
+
+	@JsonProperty(required=false)
+	@ApiModelProperty(notes="Message images", required=false)
+	public List<String> images;
 	
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Topics of this message.", required=false)
