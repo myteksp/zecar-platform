@@ -43,7 +43,7 @@ public final class MessageDTO {
 
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Message images", required=false)
-	public List<String> images;
+	public List<Object> images;
 	
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Topics of this message.", required=false)
