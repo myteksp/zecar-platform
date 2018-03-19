@@ -12,6 +12,10 @@ public final class MessageDTO {
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Message id.", required=true)
 	public String id;
+
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Whether message public or not", required=true)
+	public Boolean isPublic;
 	
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Sender's user id.", required=true)
@@ -74,7 +78,7 @@ public final class MessageDTO {
 	}
 	@Override
 	public final String toString() {
-		return "MessageDTO [id=" + id + ", sender=" + sender + ", parentId=" + parentId + ", text=" + text
+		return "MessageDTO [id=" + id + ", isPublic=" + isPublic + ", sender=" + sender + ", parentId=" + parentId + ", text=" + text
 				+ ", attachments=" + attachments + ", time=" + time + ", topics=" + topics + ", carModelID=" + carModelID + ", status=" + status + "]";
 	}
 }
