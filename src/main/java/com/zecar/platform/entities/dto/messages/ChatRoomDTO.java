@@ -10,6 +10,10 @@ public final class ChatRoomDTO {
 	@ApiModelProperty(notes="Chat room id.", required=true)
 	public String id;
 
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Chat room id.", required=true)
+	public Boolean isPrivateChat;
+
     @JsonProperty(required=false)
     @ApiModelProperty(notes="The first message of this chatroom (the question)", required=false)
 	public MessageDTO firstMessage;
@@ -47,7 +51,7 @@ public final class ChatRoomDTO {
 	}
 	@Override
 	public String toString() {
-		return "ChatRoomDTO [id=" + id + ", firstMessage=" + firstMessage + ", lastMessage=" + lastMessage
+		return "ChatRoomDTO [id=" + id + ", isPrivate=" + isPrivateChat +", firstMessage=" + firstMessage + ", lastMessage=" + lastMessage
 				+ ", headerPicture=" + headerPicture + "]";
 	}
 }

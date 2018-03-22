@@ -40,7 +40,7 @@ public class UserSubscriptionDTO {
 
     @Override
     public final String toString() {
-        return "Subscriber [id=" + id + ", userId=" + userId + ", token=" + token + ", topics=" + topics + ", status=" + status +"]";
+        return "UserSubscriptionDTO [id=" + id + ", userId=" + userId + ", token=" + token + ", topics=" + topics + ", status=" + status +"]";
     }
 
     @Override
