@@ -11,7 +11,7 @@ public final class ChatRoomDTO {
 	public String id;
 
 	@JsonProperty(required=true)
-	@ApiModelProperty(notes="Chat room id.", required=true)
+	@ApiModelProperty(notes="Whether private chat or not", required=true)
 	public Boolean isPrivateChat;
 
     @JsonProperty(required=false)
