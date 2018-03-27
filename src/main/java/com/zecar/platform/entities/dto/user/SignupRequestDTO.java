@@ -17,6 +17,10 @@ public final class SignupRequestDTO {
 	@ApiModelProperty(notes="Profile", required=true)
 	public UserProfileDTO profile;
 
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="User's push notifications subscription", required=true)
+	public UserSubscriptionDTO subscription;
+
 	@Override
 	public final int hashCode() {
 		final int prime = 31;
@@ -24,6 +28,7 @@ public final class SignupRequestDTO {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
+		result = prime * result + ((subscription == null) ? 0 : subscription.hashCode());
 		return result;
 	}
 	@Override
@@ -50,10 +55,15 @@ public final class SignupRequestDTO {
 				return false;
 		} else if (!profile.equals(other.profile))
 			return false;
+		if (subscription == null) {
+			if (other.subscription != null)
+				return false;
+		} else if (!subscription.equals(other.subscription))
+			return false;
 		return true;
 	}
 	@Override
 	public final String toString() {
-		return "SignupRequestDTO [id=" + id + ", password=" + password + ", profile=" + profile + "]";
+		return "SignupRequestDTO [id=" + id + ", password=" + password + ", profile=" + profile + subscription +"]";
 	}
 }
