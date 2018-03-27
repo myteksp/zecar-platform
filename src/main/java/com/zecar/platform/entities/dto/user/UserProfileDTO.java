@@ -63,6 +63,10 @@ public final class UserProfileDTO {
 	@ApiModelProperty(notes="User's social networks profiles", required=false)
 	public List<SocialNetworkDTO> socialNetworks;
 
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="User's push notifications subscription", required=true)
+	public UserSubscriptionDTO subscription;
+
 	@Override
 	public final int hashCode() {
 		final int prime = 31;
@@ -80,6 +84,7 @@ public final class UserProfileDTO {
 		result = prime * result + ((pictures == null) ? 0 : pictures.hashCode());
 		result = prime * result + ((previousCars == null) ? 0 : previousCars.hashCode());
 		result = prime * result + ((socialNetworks == null) ? 0 : socialNetworks.hashCode());
+		result = prime * result + ((subscription == null) ? 0 : subscription.hashCode());
 		return result;
 	}
 	@Override
@@ -156,6 +161,11 @@ public final class UserProfileDTO {
 				return false;
 		} else if (!socialNetworks.equals(other.socialNetworks))
 			return false;
+		if (subscription == null) {
+			if (other.subscription != null)
+				return false;
+		} else if (!subscription.equals(other.subscription))
+			return false;
 		return true;
 	}
 	@Override
@@ -163,6 +173,6 @@ public final class UserProfileDTO {
 		return "UserProfileDTO [name=" + name + ", email=" + email + ", description=" + description + ", country="
 				+ country + ", city=" + city + ", birthDate=" + birthDate + ", pictures=" + pictures + ", avatar="
 				+ avatar + ", cover=" + cover + ", previousCars=" + previousCars + ", currentCars=" + currentCars
-				+ ", futureCars=" + futureCars + ", socialNetworks=" + socialNetworks + "]";
+				+ ", futureCars=" + futureCars + ", socialNetworks=" + socialNetworks + ", subscription= " + subscription + "]";
 	}
 }
