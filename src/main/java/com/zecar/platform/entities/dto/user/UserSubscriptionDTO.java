@@ -6,24 +6,24 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.LinkedHashSet;
 
 public class UserSubscriptionDTO {
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="Subscription id", required=false)
+    @JsonProperty()
+    @ApiModelProperty(notes="Subscription id")
     public String id;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="User id", required=false)
+    @JsonProperty()
+    @ApiModelProperty(notes="User id")
     public String userId;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="FCM token", required=true)
+    @JsonProperty()
+    @ApiModelProperty(notes="FCM token")
     public String token;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="List of subscribed topics", required=false)
+    @JsonProperty()
+    @ApiModelProperty(notes="List of subscribed topics")
     public LinkedHashSet<String> topics;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="FCM Subscription status", required=false)
+    @JsonProperty()
+    @ApiModelProperty(notes="FCM Subscription status")
     public UserSubscriptionStatus status;
 
     @Override
