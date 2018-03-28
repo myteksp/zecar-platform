@@ -26,6 +26,12 @@ public class UserSubscriptionDTO {
     @ApiModelProperty(notes="FCM Subscription status")
     public UserSubscriptionStatus status;
 
+    public UserSubscriptionDTO() {
+        super();
+        if(this.topics == null)
+            this.topics = new LinkedHashSet<>();
+    }
+
     @Override
     public final int hashCode() {
         final int prime = 31;
