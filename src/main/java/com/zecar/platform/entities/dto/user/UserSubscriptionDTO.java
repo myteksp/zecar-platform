@@ -7,11 +7,11 @@ import java.util.LinkedHashSet;
 
 public class UserSubscriptionDTO {
     @JsonProperty(required=true)
-    @ApiModelProperty(notes="Subscription id", required=true)
+    @ApiModelProperty(notes="Subscription id", required=false)
     public String id;
 
     @JsonProperty(required=true)
-    @ApiModelProperty(notes="User id", required=true)
+    @ApiModelProperty(notes="User id", required=false)
     public String userId;
 
     @JsonProperty(required=true)
@@ -19,11 +19,11 @@ public class UserSubscriptionDTO {
     public String token;
 
     @JsonProperty(required=true)
-    @ApiModelProperty(notes="List of subscribed topics", required=true)
+    @ApiModelProperty(notes="List of subscribed topics", required=false)
     public LinkedHashSet<String> topics;
 
     @JsonProperty(required=true)
-    @ApiModelProperty(notes="FCM Subscription status", required=true)
+    @ApiModelProperty(notes="FCM Subscription status", required=false)
     public UserSubscriptionStatus status;
 
     @Override
