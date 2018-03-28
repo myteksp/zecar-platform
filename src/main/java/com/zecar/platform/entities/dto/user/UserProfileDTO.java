@@ -63,6 +63,8 @@ public final class UserProfileDTO {
 	@ApiModelProperty(notes="User's social networks profiles", required=false)
 	public List<SocialNetworkDTO> socialNetworks;
 
+	//TODO: Remove UserSubscriptionDTO to UserDTO in the future
+
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="User's push notifications subscription", required=true)
 	public UserSubscriptionDTO subscription;
