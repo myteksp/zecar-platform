@@ -3,6 +3,8 @@ package com.zecar.platform.entities.dto.messages;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.List;
+
 public final class FCMNotificationDTO {
     @JsonProperty(required=true)
     @ApiModelProperty(notes="Title", required=true)
@@ -17,18 +19,13 @@ public final class FCMNotificationDTO {
     public String sender;
 
     @JsonProperty(required=true)
-    @ApiModelProperty(notes="Receiver of the notification", required=true)
-    public String receiver;
+    @ApiModelProperty(notes="Notification topics", required=false)
+    public List<String> topics;
 
-    @JsonProperty(required=false)
-    @ApiModelProperty(notes="Notification topic", required=false)
-    public String topic;
-
-    public FCMNotificationDTO(String title, String message, String sender, String receiver, String topic) {
+    public FCMNotificationDTO(String title, String message, String sender, String receiver, List<String> topics) {
         this.title = title;
         this.message = message;
         this.sender = sender;
-        this.receiver = receiver;
-        this.topic = topic;
+        this.topics = topics;
     }
 }
