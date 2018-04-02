@@ -22,7 +22,7 @@ public final class FCMNotificationDTO {
     @ApiModelProperty(notes="Notification topics", required=true)
     public List<String> topics;
 
-    public FCMNotificationDTO(String title, String message, String sender, String receiver, List<String> topics) {
+    public FCMNotificationDTO(String title, String message, String sender, List<String> topics) {
         this.title = title;
         this.message = message;
         this.sender = sender;
