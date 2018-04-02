@@ -19,7 +19,7 @@ public final class FCMNotificationDTO {
     public String sender;
 
     @JsonProperty(required=true)
-    @ApiModelProperty(notes="Notification topics", required=false)
+    @ApiModelProperty(notes="Notification topics", required=true)
     public List<String> topics;
 
     public FCMNotificationDTO(String title, String message, String sender, String receiver, List<String> topics) {
