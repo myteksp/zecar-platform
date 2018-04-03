@@ -65,8 +65,8 @@ public final class UserProfileDTO {
 
 	//TODO: Remove UserSubscriptionDTO to UserDTO in the future
 
-	@JsonProperty(required=true)
-	@ApiModelProperty(notes="User's push notifications subscription", required=true)
+	@JsonProperty()
+	@ApiModelProperty(notes="User's push notifications subscription")
 	public UserSubscriptionDTO subscription;
 
 	@Override
