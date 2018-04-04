@@ -5,27 +5,77 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
 
-public final class FCMNotificationDTO {
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="Title", required=true)
+public class FCMNotificationDTO {
+    @JsonProperty()
+    @ApiModelProperty(notes="Title")
     public String title;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="Message", required=true)
+    @JsonProperty()
+    @ApiModelProperty(notes="Message")
     public String message;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="Sender of the notification", required=true)
+    @JsonProperty()
+    @ApiModelProperty(notes="Sender of the notification")
     public String sender;
 
-    @JsonProperty(required=true)
-    @ApiModelProperty(notes="Notification topics", required=true)
+    @JsonProperty()
+    @ApiModelProperty(notes="Notification topics")
     public List<String> topics;
+
+    public FCMNotificationDTO(){}
 
     public FCMNotificationDTO(String title, String message, String sender, List<String> topics) {
         this.title = title;
         this.message = message;
         this.sender = sender;
         this.topics = topics;
+    }
+
+    @Override
+    public final int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((title == null) ? 0 : title.hashCode());
+        result = prime * result + ((message == null) ? 0 : message.hashCode());
+        result = prime * result + ((sender == null) ? 0 : sender.hashCode());
+        result = prime * result + ((topics == null) ? 0 : topics.hashCode());
+        return result;
+    }
+
+    @Override
+    public final boolean equals(final Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final FCMNotificationDTO other = (FCMNotificationDTO) obj;
+        if (title == null) {
+            if (other.title != null)
+                return false;
+        } else if (!title.equals(other.title))
+            return false;
+        if (message == null) {
+            if (other.message != null)
+                return false;
+        } else if (!message.equals(other.message))
+            return false;
+        if (sender == null) {
+            if (other.sender != null)
+                return false;
+        } else if (!sender.equals(other.sender))
+            return false;
+        if (topics == null) {
+            if (other.topics != null)
+                return false;
+        } else if (!topics.equals(other.topics))
+            return false;
+        return true;
+    }
+
+    @Override
+    public final String toString() {
+        return "FCMNotificationDTO [title=" + title + ", message=" + message + ", sender=" + sender + ", topics=" + topics + "]";
     }
 }
