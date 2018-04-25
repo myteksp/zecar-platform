@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
+import java.util.Map;
 
 public class FCMNotificationDTO {
     @JsonProperty()
@@ -22,13 +23,18 @@ public class FCMNotificationDTO {
     @ApiModelProperty(notes="Notification topics")
     public List<String> topics;
 
+    @JsonProperty()
+    @ApiModelProperty(notes="Data payload")
+    public Map<String,String> data;
+
     public FCMNotificationDTO(){}
 
-    public FCMNotificationDTO(String title, String message, String sender, List<String> topics) {
+    public FCMNotificationDTO(String title, String message, String sender, List<String> topics, Map<String, String> data) {
         this.title = title;
         this.message = message;
         this.sender = sender;
         this.topics = topics;
+        this.data = data;
     }
 
     @Override
@@ -39,6 +45,7 @@ public class FCMNotificationDTO {
         result = prime * result + ((message == null) ? 0 : message.hashCode());
         result = prime * result + ((sender == null) ? 0 : sender.hashCode());
         result = prime * result + ((topics == null) ? 0 : topics.hashCode());
+        result = prime * result + ((data == null) ? 0 : data.hashCode());
         return result;
     }
 
@@ -71,11 +78,16 @@ public class FCMNotificationDTO {
                 return false;
         } else if (!topics.equals(other.topics))
             return false;
+        if (data == null) {
+            if (other.data != null)
+                return false;
+        } else if (!data.equals(other.data))
+            return false;
         return true;
     }
 
     @Override
     public final String toString() {
-        return "FCMNotificationDTO [title=" + title + ", message=" + message + ", sender=" + sender + ", topics=" + topics + "]";
+        return "FCMNotificationDTO [title=" + title + ", message=" + message + ", sender=" + sender + ", topics=" + topics + ", data=" + data +"]";
     }
 }
