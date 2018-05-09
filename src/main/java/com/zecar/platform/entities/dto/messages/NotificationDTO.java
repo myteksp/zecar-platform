@@ -9,23 +9,23 @@ import java.util.Map;
 public class NotificationDTO {
     @JsonProperty()
     @ApiModelProperty(notes="Notification Type")
-    protected NotificationTypeENUM type;
+    public NotificationTypeENUM type;
 
     @JsonProperty()
     @ApiModelProperty(notes="Title")
-    protected String title;
+    public String title;
 
     @JsonProperty()
     @ApiModelProperty(notes="Sender of the notification")
-    protected String sender;
+    public String sender;
 
     @JsonProperty()
     @ApiModelProperty(notes="Notification topics")
-    protected List<String> topics;
+    public List<String> topics;
 
     @JsonProperty()
     @ApiModelProperty(notes="Data payload")
-    protected Map<String,String> data;
+    public Map<String,String> data;
 
     public NotificationDTO(NotificationTypeENUM type, String title, String sender, List<String> topics, Map<String, String> data) {
         this.type = type;
