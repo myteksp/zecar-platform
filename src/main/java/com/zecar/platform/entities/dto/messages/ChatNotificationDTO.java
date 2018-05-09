@@ -6,35 +6,23 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Map;
 
-public class FCMNotificationDTO {
+public final class ChatNotificationDTO extends NotificationDTO {
+//    @JsonProperty()
+//    @ApiModelProperty(notes="Title")
+//    public String title;
+
     @JsonProperty()
-    @ApiModelProperty(notes="Title")
-    public String title;
+    @ApiModelProperty(notes="Chat Id")
+    public String chatId;
 
     @JsonProperty()
     @ApiModelProperty(notes="Message")
-    public String message;
+    public MessageDTO message;
 
-    @JsonProperty()
-    @ApiModelProperty(notes="Sender of the notification")
-    public String sender;
-
-    @JsonProperty()
-    @ApiModelProperty(notes="Notification topics")
-    public List<String> topics;
-
-    @JsonProperty()
-    @ApiModelProperty(notes="Data payload")
-    public Map<String,String> data;
-
-    public FCMNotificationDTO(){}
-
-    public FCMNotificationDTO(String title, String message, String sender, List<String> topics, Map<String, String> data) {
-        this.title = title;
+    public ChatNotificationDTO(final NotificationTypeENUM type, final String title, MessageDTO message,String chatId, String sender, List<String> topics, Map<String, String> data) {
+        super(type, title, message.sender, topics, data);
+        this.chatId = chatId;
         this.message = message;
-        this.sender = sender;
-        this.topics = topics;
-        this.data = data;
     }
 
     @Override
@@ -43,6 +31,7 @@ public class FCMNotificationDTO {
         int result = 1;
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((message == null) ? 0 : message.hashCode());
+        result = prime * result + ((chatId == null) ? 0 : chatId.hashCode());
         result = prime * result + ((sender == null) ? 0 : sender.hashCode());
         result = prime * result + ((topics == null) ? 0 : topics.hashCode());
         result = prime * result + ((data == null) ? 0 : data.hashCode());
@@ -57,7 +46,7 @@ public class FCMNotificationDTO {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        final FCMNotificationDTO other = (FCMNotificationDTO) obj;
+        final ChatNotificationDTO other = (ChatNotificationDTO) obj;
         if (title == null) {
             if (other.title != null)
                 return false;
@@ -67,6 +56,11 @@ public class FCMNotificationDTO {
             if (other.message != null)
                 return false;
         } else if (!message.equals(other.message))
+            return false;
+        if (chatId == null) {
+            if (other.chatId != null)
+                return false;
+        } else if (!chatId.equals(other.chatId))
             return false;
         if (sender == null) {
             if (other.sender != null)
@@ -88,6 +82,6 @@ public class FCMNotificationDTO {
 
     @Override
     public final String toString() {
-        return "FCMNotificationDTO [title=" + title + ", message=" + message + ", sender=" + sender + ", topics=" + topics + ", data=" + data +"]";
+        return "ChatNotificationDTO [title=" + title + ", message=" + message + ", chatId=" + chatId + ", sender=" + sender + ", topics=" + topics + ", data=" + data +"]";
     }
 }
