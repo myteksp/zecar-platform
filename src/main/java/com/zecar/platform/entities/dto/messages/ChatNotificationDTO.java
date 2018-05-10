@@ -19,6 +19,8 @@ public final class ChatNotificationDTO extends NotificationDTO {
     @ApiModelProperty(notes="Message")
     public MessageDTO message;
 
+    public ChatNotificationDTO() {}
+
     public ChatNotificationDTO(final NotificationTypeENUM type, MessageDTO message, String chatId) {
         super(type, message.sender);
         this.message = message;
