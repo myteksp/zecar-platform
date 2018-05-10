@@ -3,6 +3,8 @@ package com.zecar.platform.entities.dto.messages;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,10 @@ public class NotificationDTO {
     @ApiModelProperty(notes="Data payload")
     public Map<String,String> data;
 
+    public NotificationDTO() {
+        this.data = new HashMap<>();
+        this.topics = new ArrayList<>();
+    }
     public NotificationDTO(NotificationTypeENUM type, String sender) {
         this.type = type;
         this.sender = sender;
