@@ -29,12 +29,10 @@ public class NotificationDTO {
     @ApiModelProperty(notes="Data payload")
     public Map<String,String> data;
 
-    public NotificationDTO() {
-        this.data = new HashMap<>();
-        this.topics = new ArrayList<>();
-    }
     public NotificationDTO(NotificationTypeENUM type, String sender) {
         this.type = type;
         this.sender = sender;
+        this.data = new HashMap<>();
+        this.topics = new ArrayList<>();
     }
 }
