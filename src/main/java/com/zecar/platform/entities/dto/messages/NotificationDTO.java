@@ -29,6 +29,8 @@ public class NotificationDTO {
     @ApiModelProperty(notes="Data payload")
     public Map<String,String> data;
 
+    public NotificationDTO(){}
+
     public NotificationDTO(NotificationTypeENUM type, String sender) {
         this.type = type;
         this.sender = sender;

@@ -3,17 +3,11 @@ package com.zecar.platform.entities.dto.messages;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.List;
-import java.util.Map;
-
 public final class ChatNotificationDTO extends NotificationDTO {
-//    @JsonProperty()
-//    @ApiModelProperty(notes="Title")
-//    public String title;
 
     @JsonProperty()
     @ApiModelProperty(notes="Chat Id")
-    public String chatId;
+    public ChatRoomDTO chat;
 
     @JsonProperty()
     @ApiModelProperty(notes="Message")
@@ -21,10 +15,10 @@ public final class ChatNotificationDTO extends NotificationDTO {
 
     public ChatNotificationDTO() {}
 
-    public ChatNotificationDTO(final NotificationTypeENUM type, MessageDTO message, String chatId) {
+    public ChatNotificationDTO(final NotificationTypeENUM type, MessageDTO message, ChatRoomDTO chat) {
         super(type, message.sender);
         this.message = message;
-        this.chatId = chatId;
+        this.chat = chat;
     }
 
     @Override
@@ -33,7 +27,7 @@ public final class ChatNotificationDTO extends NotificationDTO {
         int result = 1;
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((message == null) ? 0 : message.hashCode());
-        result = prime * result + ((chatId == null) ? 0 : chatId.hashCode());
+        result = prime * result + ((chat == null) ? 0 : chat.hashCode());
         result = prime * result + ((sender == null) ? 0 : sender.hashCode());
         result = prime * result + ((topics == null) ? 0 : topics.hashCode());
         result = prime * result + ((data == null) ? 0 : data.hashCode());
@@ -59,10 +53,10 @@ public final class ChatNotificationDTO extends NotificationDTO {
                 return false;
         } else if (!message.equals(other.message))
             return false;
-        if (chatId == null) {
-            if (other.chatId != null)
+        if (chat == null) {
+            if (other.chat != null)
                 return false;
-        } else if (!chatId.equals(other.chatId))
+        } else if (!chat.equals(other.chat))
             return false;
         if (sender == null) {
             if (other.sender != null)
@@ -84,6 +78,6 @@ public final class ChatNotificationDTO extends NotificationDTO {
 
     @Override
     public final String toString() {
-        return "ChatNotificationDTO [title=" + title + ", message=" + message + ", chatId=" + chatId + ", sender=" + sender + ", topics=" + topics + ", data=" + data +"]";
+        return "ChatNotificationDTO [title=" + title + ", message=" + message + ", chat=" + chat + ", sender=" + sender + ", topics=" + topics + ", data=" + data +"]";
     }
 }
