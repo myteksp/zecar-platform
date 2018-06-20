@@ -11,6 +11,10 @@ public final class ChatRoomDTO {
 	public String id;
 
 	@JsonProperty(required=true)
+	@ApiModelProperty(notes="User who created the chat", required=true)
+	public String creatorId;
+
+	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Whether private chat or not", required=true)
 	public Boolean isPrivateChat;
 
@@ -31,6 +35,7 @@ public final class ChatRoomDTO {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((creatorId == null) ? 0 : creatorId.hashCode());
 		return result;
 	}
 	@Override
@@ -47,11 +52,16 @@ public final class ChatRoomDTO {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (creatorId == null) {
+			if (other.creatorId != null)
+				return false;
+		} else if (!creatorId.equals(other.creatorId))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "ChatRoomDTO [id=" + id + ", isPrivate=" + isPrivateChat +", firstMessage=" + firstMessage + ", lastMessage=" + lastMessage
+		return "ChatRoomDTO [id=" + id + ", isPrivate=" + isPrivateChat +", creatorId=" + creatorId +", firstMessage=" + firstMessage + ", lastMessage=" + lastMessage
 				+ ", headerPicture=" + headerPicture + "]";
 	}
 }
