@@ -42,10 +42,6 @@ public final class MessageDTO {
 	public List<TagDTO> topics;
 
 	@JsonProperty(required=false)
-	@ApiModelProperty(notes="Car model", required=false)
-	public String carModelID;
-
-	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Message images", required=false)
 	public List<Object> images;
 	
@@ -79,6 +75,6 @@ public final class MessageDTO {
 	@Override
 	public final String toString() {
 		return "MessageDTO [id=" + id + ", isPublic=" + isPublic + ", sender=" + sender + ", parentId=" + parentId + ", text=" + text
-				+ ", attachments=" + attachments + ", time=" + time + ", topics=" + topics + ", carModelID=" + carModelID + ", status=" + status + "]";
+				+ ", attachments=" + attachments + ", time=" + time + ", topics=" + topics +", status=" + status + "]";
 	}
 }
