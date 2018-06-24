@@ -18,6 +18,10 @@ public final class ChatRoomDTO {
 	@ApiModelProperty(notes="Whether private chat or not", required=true)
 	public Boolean isPrivateChat;
 
+	@JsonProperty(required=false)
+	@ApiModelProperty(notes="Car model discussed in this chat", required=false)
+	public String carModelId;
+
     @JsonProperty(required=false)
     @ApiModelProperty(notes="The first message of this chatroom (the question)", required=false)
 	public MessageDTO firstMessage;
@@ -36,6 +40,7 @@ public final class ChatRoomDTO {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((creatorId == null) ? 0 : creatorId.hashCode());
+		result = prime * result + ((carModelId == null) ? 0 : carModelId.hashCode());
 		return result;
 	}
 	@Override
@@ -57,11 +62,16 @@ public final class ChatRoomDTO {
 				return false;
 		} else if (!creatorId.equals(other.creatorId))
 			return false;
+		if (carModelId == null) {
+			if (other.carModelId != null)
+				return false;
+		} else if (!carModelId.equals(other.carModelId))
+			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "ChatRoomDTO [id=" + id + ", isPrivate=" + isPrivateChat +", creatorId=" + creatorId +", firstMessage=" + firstMessage + ", lastMessage=" + lastMessage
+		return "ChatRoomDTO [id=" + id + ", isPrivate=" + isPrivateChat +", creatorId=" + creatorId +", carModelId=" + carModelId +", firstMessage=" + firstMessage + ", lastMessage=" + lastMessage
 				+ ", headerPicture=" + headerPicture + "]";
 	}
 }
