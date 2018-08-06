@@ -13,12 +13,17 @@ public final class ThirdPartyLoginRequestDTO {
 	@ApiModelProperty(notes="access-token", required=true)
 	public String token;
 
+	@JsonProperty(required=false)
+	@ApiModelProperty(notes="secret", required=false)
+	public String secret;
+
 	@Override
 	public final int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((token == null) ? 0 : token.hashCode());
+		result = prime * result + ((secret == null) ? 0 : secret.hashCode());
 		return result;
 	}
 	@Override
@@ -39,6 +44,11 @@ public final class ThirdPartyLoginRequestDTO {
 			if (other.token != null)
 				return false;
 		} else if (!token.equals(other.token))
+			return false;
+		if (secret == null) {
+			if (other.secret != null)
+				return false;
+		} else if (!secret.equals(other.secret))
 			return false;
 		return true;
 	}
