@@ -34,6 +34,10 @@ public final class ChatRoomDTO {
 	@ApiModelProperty(notes="Chat room header picture.", required=false)
 	public PictureDTO headerPicture;
 
+	@JsonProperty(required=false)
+	@ApiModelProperty(notes="Is me invited to the chat.", required=false)
+	public Boolean amIInvited;
+
 	@Override
 	public final int hashCode() {
 		final int prime = 31;
