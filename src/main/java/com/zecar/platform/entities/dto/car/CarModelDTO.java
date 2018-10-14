@@ -5,6 +5,8 @@ import com.zecar.platform.entities.dto.pictures.PictureCollectionDTO;
 
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.Date;
+
 public final class CarModelDTO {
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Car's model entity ID", required=true)
@@ -34,6 +36,14 @@ public final class CarModelDTO {
 	@ApiModelProperty(notes="Pictures of this model", required=false)
 	public PictureCollectionDTO modelPictures;
 
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Create temestamp", required=true)
+	public Date createdDate;
+
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Last modified temestamp", required=true)
+	public Date lastModifiedDate;
+
 	@Override
 	public final int hashCode() {
 		final int prime = 31;
@@ -61,6 +71,6 @@ public final class CarModelDTO {
 	public final String toString() {
 		return "CarModelDTO [id=" + id + ", modelName=" + modelName + ", modelSubName=" + modelSubName
 				+ ", manufacturer=" + manufacturer + ", manufaturedSince=" + manufaturedSince + ", manufaturedUntil="
-				+ manufaturedUntil + ", modelPictures=" + modelPictures + "]";
+				+ manufaturedUntil + ", modelPictures=" + modelPictures + ", createdDate=" + createdDate + ", lastModifiedDate=" + lastModifiedDate +"]";
 	}
 }

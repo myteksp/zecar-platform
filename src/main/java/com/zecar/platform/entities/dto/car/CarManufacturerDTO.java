@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.Date;
+
 public final class CarManufacturerDTO {
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Manufacturer's id", required=true)
@@ -16,7 +18,15 @@ public final class CarManufacturerDTO {
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Manufacturer's logo id", required=false)
 	public String logo;
-	
+
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Create temestamp", required=true)
+	public Date createdDate;
+
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="Last modified temestamp", required=true)
+	public Date lastModifiedDate;
+
 	@Override
 	public final int hashCode() {
 		final int prime = 31;
@@ -42,6 +52,7 @@ public final class CarManufacturerDTO {
 	}
 	@Override
 	public final String toString() {
-		return "CarManufacturerDTO [id=" + id + ", name=" + name + ", logo=" + logo + "]";
+		return "CarManufacturerDTO [id=" + id + ", name=" + name + ", logo=" + logo
+				+ ", createdDate=" + createdDate + ", lastModifiedDate=" + lastModifiedDate +"]";
 	}
 }
