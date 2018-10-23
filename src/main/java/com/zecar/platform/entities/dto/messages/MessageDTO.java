@@ -46,7 +46,7 @@ public final class MessageDTO {
 	public List<Object> images;
 	
 	@JsonProperty(required=false)
-	@ApiModelProperty(notes="Topics of this message.", required=false)
+	@ApiModelProperty(notes="Message status", required=false)
 	public MessageStatusDTO status;
 
 	@Override

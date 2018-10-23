@@ -3,7 +3,10 @@ package com.zecar.platform.entities.dto.messages;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.zecar.platform.entities.dto.pictures.PictureDTO;
 
+import com.zecar.platform.entities.dto.text.TagDTO;
 import io.swagger.annotations.ApiModelProperty;
+
+import java.util.List;
 
 public final class ChatRoomDTO {
 	@JsonProperty(required=true)
@@ -37,6 +40,10 @@ public final class ChatRoomDTO {
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Is me invited to the chat.", required=false)
 	public Boolean amIInvited;
+
+	@JsonProperty(required=false)
+	@ApiModelProperty(notes="Topics of the asked question (first message)", required=false)
+	public List<TagDTO> topics;
 
 	@Override
 	public final int hashCode() {
