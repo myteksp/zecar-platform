@@ -43,7 +43,7 @@ public final class ChatRoomDTO {
 
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Topics of the asked question (first message)", required=false)
-	public List<TagDTO> topics;
+	public List<TagDTO> questionTopics;
 
 	@Override
 	public final int hashCode() {
