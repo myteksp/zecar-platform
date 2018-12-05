@@ -14,6 +14,10 @@ public final class FeedItemDTO {
 	@ApiModelProperty(notes="The ID of feed item", required=true)
 	public String itemID;
 
+	@JsonProperty(required=true)
+	@ApiModelProperty(notes="The user id of the publisher", required=true)
+	public String publisherID;
+
 	@JsonProperty
 	@ApiModelProperty(notes="Feed with chat content")
 	public ChatFeedItemDTO chatFeedItem;
@@ -21,10 +25,6 @@ public final class FeedItemDTO {
 	@JsonProperty
 	@ApiModelProperty(notes="Feed with car rating content")
 	public CarRatingFeedItemDTO carRatingFeedItem;
-
-	@JsonProperty(required=true)
-	@ApiModelProperty(notes="The user id of the publisher", required=true)
-	public String publisherID;
 	
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Time stamp of this item publication. (server time)", required=true)
@@ -34,9 +34,15 @@ public final class FeedItemDTO {
 	@ApiModelProperty(notes="Feed item text", required=false)
 	public String text;
 
+	//TODO: consider if need this field
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Pictures for this post", required=false)
 	public PictureCollectionDTO pictures;
+
+	//TODO: remove this field in the future (itemID replaces chatroomId). This field just left for backward compatibility
+	@JsonProperty(required=false)
+	@ApiModelProperty(notes="Chat id", required=false)
+	public String chatroomID;
 
 	@Override
 	public final int hashCode() {
