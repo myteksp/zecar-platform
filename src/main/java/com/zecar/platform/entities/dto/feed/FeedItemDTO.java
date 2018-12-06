@@ -5,6 +5,8 @@ import com.zecar.platform.entities.dto.pictures.PictureCollectionDTO;
 
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.List;
+
 public final class FeedItemDTO {
 	@JsonProperty(required=true)
 	@ApiModelProperty(notes="Type of feed item", required=true)
@@ -34,10 +36,9 @@ public final class FeedItemDTO {
 	@ApiModelProperty(notes="Feed item text", required=false)
 	public String text;
 
-	//TODO: consider if need this field
 	@JsonProperty(required=false)
 	@ApiModelProperty(notes="Pictures for this post", required=false)
-	public PictureCollectionDTO pictures;
+	public List<Object> pictures;
 
 	//TODO: remove this field in the future (itemID replaces chatroomId). This field just left for backward compatibility
 	@JsonProperty(required=false)
