@@ -36,10 +36,14 @@ public final class FeedItemDTO {
 	@ApiModelProperty(notes="Feed item text", required=false)
 	public String text;
 
+	//TODO : Remove this one
 	@JsonProperty(required=false)
-	@ApiModelProperty(notes="Pictures for this post", required=false)
-	//public List<Object> pictures;
+	@ApiModelProperty(notes="TODO: Remove: Old Pictures for this post", required=false)
 	public PictureCollectionDTO pictures;
+
+    @JsonProperty(required=false)
+    @ApiModelProperty(notes="Pictures for this post", required=false)
+    public List<Object> images;
 
 	//TODO: remove this field in the future (itemID replaces chatroomId). This field just left for backward compatibility
 	@JsonProperty(required=false)
